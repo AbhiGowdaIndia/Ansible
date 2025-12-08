@@ -17,7 +17,8 @@
   **ansible \<group-name> -m ping**
 
   Example:  
-  **Note:** In all the example we use **Demo** as group
+  **Note:** In all the example we use **Demo** as group  
+
     **ansible Demo -m ping**
 
 * To reboot hots in a group
@@ -48,7 +49,8 @@
 
   * Add user with sudo (very common)
 
-    **ansible Demo -m user -a "name=devops groups=wheel append=yes" -b**
+    **ansible Demo -m user -a "name=devops groups=wheel append=yes" -b**  
+    * -b → become root
 
   * Set password (hash required)
 
