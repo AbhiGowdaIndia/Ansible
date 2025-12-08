@@ -42,6 +42,14 @@
 
 #### Post-Installation Checklist (IMPORTANT)
 
-ansible --version
-ansible-galaxy --version
-ansible-config dump | head
+* ansible --version   
+
+* ansible-galaxy --version  
+
+* ansible-config dump | head  
+
+#### 📁 Important Files Created
+
+* /etc/ansible/ansible.cfg
+
+* /etc/ansible/hosts
