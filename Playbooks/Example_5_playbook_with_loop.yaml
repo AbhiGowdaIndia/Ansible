@@ -1,0 +1,62 @@
+# This is using loop
+---
+- name: Play1
+  hosts: all
+  tasks:
+  - name: Install the packages
+    apt:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - git
+      - jq
+      - bc
+
+# This is using with_items
+---
+- name: Play1
+  hosts: all
+  tasks:
+  - name: Install the packages
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - git
+      - jq
+      - bc
+
+# Using Variables + Loop
+---
+- name: Install utility packages
+  hosts: all
+  become: yes
+  vars:
+    packages:
+      - git
+      - jq
+      - bc
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+
+# Using Variables + with_items
+---
+- name: Install utility packages
+  hosts: all
+  become: yes
+  vars:
+    packages:
+      - git
+      - jq
+      - bc
+  tasks:
+    - name: Install packages using with_items
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
+
