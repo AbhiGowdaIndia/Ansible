@@ -1,5 +1,5 @@
 ---
-- name: play1
+- name: Play1
   hosts: all
   tasks:
   - name: install the packages in ubuntu
@@ -8,3 +8,4 @@
       name: git
       state: present
     when: ansible_facts['distribution']=="Ubuntu"
+

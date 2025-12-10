@@ -1,0 +1,16 @@
+---
+- name: Play2
+  hosts: all
+  tasks:
+  - name: Install the packages in ubuntu
+    become: true
+    apt:
+      name: jq
+      state: present
+    register: install_out
+    ignore_error: true
+    
+  - name: Print statement
+    debug:
+      msg: testing debug {{install_out.stdout}}
+    when: install_out.stdout is defined
