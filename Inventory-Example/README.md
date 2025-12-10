@@ -26,11 +26,11 @@ dbservers
 
 * Explanation:
 
-  * [webservers] → group of web servers
+  * **[webservers]** → group of web servers
 
-  * [dbservers] → group of database servers
+  * **[dbservers]** → group of database servers
 
-  * [all_servers:children] → nested group containing web + db servers
+  * **[all_servers:children]** → nested group containing web + db servers
 
 ### Variables in Inventory
 
@@ -42,9 +42,9 @@ web2.example.com ansible_user=ubuntu ansible_port=2222
 [dbservers]
 db1.example.com ansible_user=root
 ```
-* ansible_user → SSH user to connect
+* **ansible_user** → SSH user to connect
 
-* ansible_port → custom SSH port
+* **ansible_port** → custom SSH port
 
 ### Targeting Hosts in Playbooks
 
