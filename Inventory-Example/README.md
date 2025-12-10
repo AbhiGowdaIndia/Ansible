@@ -22,11 +22,66 @@ db2.example.com
 [all_servers:children]
 webservers
 dbservers
+```
 
 * Explanation:
 
-[webservers] → group of web servers
+  * [webservers] → group of web servers
 
-[dbservers] → group of database servers
+  * [dbservers] → group of database servers
 
-[all_servers:children] → nested group containing web + db servers
+  * [all_servers:children] → nested group containing web + db servers
+
+### Variables in Inventory
+
+```
+[webservers]
+web1.example.com ansible_user=ubuntu ansible_port=22
+web2.example.com ansible_user=ubuntu ansible_port=2222
+
+[dbservers]
+db1.example.com ansible_user=root
+```
+* ansible_user → SSH user to connect
+
+* ansible_port → custom SSH port
+
+### Targeting Hosts in Playbooks
+
+```yaml
+- name: Update all web servers
+  hosts: webservers
+  tasks:
+    - name: Install nginx
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+```
+
+### Targeting Specific Hosts'
+
+```yaml
+- name: Run a task on a single host
+  hosts: web1.example.com
+  tasks:
+    - name: Show hostname
+      ansible.builtin.command: hostname
+```
+
+### Using Patterns
+
+* **hosts: all** → all hosts
+
+* **hosts: web** → any host starting with web
+
+* **hosts: webservers:&dbservers** → hosts in both groups
+
+* **hosts: webservers:!web2.example.com** → all in webservers except web2
+
+### Checking Inventory
+
+* You can list all hosts and groups with:
+
+  * **ansible all --list-hosts**
+  
+  * **ansible webservers --list-hosts**
