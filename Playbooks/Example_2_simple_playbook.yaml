@@ -1,0 +1,15 @@
+---
+- name: play1
+  hosts: localhost
+  tasks:
+  - name: Install some packages
+    become: true
+    apt:
+      name: git
+      state: present
+  - name: Check present working directory
+    command: 'pwd'
+    register: pwd_out
+  - name: Print the output from previous tasks
+    debug:
+      msg: The current working directory is {{pwd_out.std}}
