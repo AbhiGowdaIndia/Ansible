@@ -44,3 +44,15 @@
   gather_facts: false
 ```
 
+**Example: In which using ansible_facts**
+
+---
+- name: Play1
+  hosts: all
+  tasks:
+  - name: install the packages in ubuntu
+    become: true
+    apt:
+      name: git
+      state: present
+    when: ansible_facts['distribution']=="Ubuntu"
