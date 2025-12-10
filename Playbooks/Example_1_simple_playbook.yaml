@@ -1,0 +1,15 @@
+---
+- host: localhost
+  tasks:
+  - name: installing git
+    become: true
+    ansible.builtin.apt:
+      name: git
+      state: present
+  - name: create empty file
+    file:
+      path: /home/ubuntu/testfile
+      state: touch
+  - name: copy the file
+    src: /home/ubuntu/testfile
+    dest: /home/ubuntu/ansible/copy_testfile
