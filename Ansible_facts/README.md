@@ -45,7 +45,7 @@
 ```
 
 **Example: In which using ansible_facts**
-
+```yaml
 ---
 - name: Play1
   hosts: all
