@@ -2,6 +2,10 @@
 
 ### The module which we commonly used in ansible playbook / roles with examples.
 
+* Modules are building blocks of ansible tasks.
+
+* They are samll programs that performs a specific action on a managed node, such as installing a package, copying file or managing service.
+
 ### File & Directory Management
 
 * **copy**
