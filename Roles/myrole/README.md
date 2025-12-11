@@ -8,12 +8,12 @@
 
 ```yaml
   myrole/
-  tasks/main.yml
-  handlers/main.yml
-  vars/main.yml
-  defaults/main.yml
-  templates/
-  files/
+    tasks/main.yml
+    handlers/main.yml
+    vars/main.yml
+    defaults/main.yml
+    templates/
+    files/
 ```
 * Then fill in the content as needed.
 
