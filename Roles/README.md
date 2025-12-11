@@ -23,7 +23,7 @@
 * Roles make playbooks clean, reusable, readable, and scalable.
 
 ### 📁 Standard Role Folder Structure
-
+```yaml
 myrole/  
 |  
 ├── defaults  
@@ -54,7 +54,7 @@ myrole/
 │   └── main.yml  
 |  
 └── README.md  
-
+```
 #### Purpose of Each Directory
 
 * **defaults/main.yml**
